@@ -1,0 +1,25 @@
+<ng-container [formGroup]="lang">
+
+
+  <ion-row class="ion-no-padding ">
+    <ion-col size="3" class="ion-no-padding">
+      <ion-select class="ion-padding-end" fill="outline" mode="md" [(ngModel)]="code"
+                  [ngModelOptions]="{standalone: true}">
+        <ion-select-option *ngFor="let option of options" [value]="option">
+          {{ option }}
+        </ion-select-option>
+      </ion-select>
+    </ion-col>
+    <ion-col size="9" class="ion-no-padding">
+      <ion-input [label]="label" [ngStyle]="{'display': (code=='en') ? 'block' : 'none'}"
+                 fill="outline" mode="md" label-placement="floating"
+                 formControlName="en" placeholder="Enter in english"></ion-input>
+
+      <ion-input [label]="label" placeholder="मराठी मध्ये टाका"
+                 [ngStyle]="{'display': (code=='mr') ? 'block' : 'none'}"
+                 fill="outline" mode="md" label-placement="floating"
+                 formControlName="mr"></ion-input>
+    </ion-col>
+  </ion-row>
+
+</ng-container>

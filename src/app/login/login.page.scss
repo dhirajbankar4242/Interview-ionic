@@ -1,0 +1,50 @@
+// for card ===>
+.card-margin-top {
+  margin-top: 110px; /* adjust as needed */
+}
+// =====>
+    .my-background-div {
+       --background: transparent !important;
+      background-image: url("/assets/images/b.jpg");
+      background-size: cover; /* or contain, 100%, etc. */
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+// for buttton =>
+    .animated-login-btn {
+  --background: #840c16;
+  --color: #f4eded;
+  --border-radius: 8px;
+
+  transition: background 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    --background: #8b0e1a;  // Lighter red on hover
+    --color: #ffffff;
+  }
+
+  &:active {
+    --background: #580b14;  // Even darker on press
+  }
+}
+
+.big-button {
+  font-size: 1.4rem;       /* larger text */
+  padding: 1.2rem 0;       /* taller button */
+  height: 80px;            /* optional fixed height */
+}
+
+// for spinner
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.8);  // Optional: dim background
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}

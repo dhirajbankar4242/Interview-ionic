@@ -1,0 +1,114 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>AdminHome</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">AadminHome</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-segment>
+    <ion-segment-button value="first" content-id="first">
+      <ion-label>Add Teacher</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="second" content-id="second">
+      <ion-label>Add Student</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="third" content-id="third">
+      <ion-label>announcment</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-segment-view>
+    <ion-segment-content id="first">
+      <div class="ion-padding">
+        <form [formGroup]="addTeacherForm" (ngSubmit)="submitTeacherForm()">
+
+          <!-- Teacher Name -->
+          <ion-item>
+            <ion-label position="floating">Teacher Name</ion-label>
+            <ion-input type="text" formControlName="teacherName"></ion-input>
+          </ion-item>
+
+          <!-- Teacher Email -->
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" formControlName="teacherEmail"></ion-input>
+          </ion-item>
+
+          <!-- Teacher Qualification -->
+          <ion-item>
+            <ion-label position="floating">Qualification</ion-label>
+            <ion-input type="text" formControlName="teacherQualification"></ion-input>
+          </ion-item>
+
+          <!-- Teacher Mobile Number -->
+          <ion-item>
+            <ion-label position="floating">Mobile Number</ion-label>
+            <ion-input type="tel" formControlName="teacherMobileNumber"></ion-input>
+          </ion-item>
+
+          <!-- Teacher Address -->
+          <ion-item>
+            <ion-label position="floating">Address</ion-label>
+            <ion-input formControlName="teacherAddress"></ion-input>
+          </ion-item>
+
+          <!-- Submit Button -->
+          <ion-button expand="block" type="submit" [disabled]="addTeacherForm.invalid">
+            Add Teacher
+          </ion-button>
+
+        </form>
+      </div>
+    </ion-segment-content>
+    <ion-segment-content id="second">
+      <div class="ion-padding">
+        <form [formGroup]="addStudentForm" (ngSubmit)="submitStudentForm()">
+          <ion-item>
+            <ion-label position="floating">Student Name</ion-label>
+            <ion-input type="text" formControlName="studentName"></ion-input>
+          </ion-item>
+          <ion-item>            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" formControlName="studentEmail"></ion-input>
+          </ion-item>
+          <ion-item>            <ion-label position="floating">Class</ion-label>
+            <ion-input type="text" formControlName="studentClass"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Mobile Number</ion-label>
+            <ion-input type="tel" formControlName="studentMobileNumber"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Address</ion-label>
+            <ion-input formControlName="studentAddress"></ion-input>
+          </ion-item>
+          <ion-button expand="block" type="submit" [disabled]="addStudentForm.invalid">
+            Add Student
+          </ion-button>
+        </form>
+      </div>
+    </ion-segment-content>
+    <ion-segment-content id="third">
+      <div class="ion-padding">
+        <form [formGroup]="schoolAnnouncementForm" (ngSubmit)="submitSchoolAnnouncementForm()">
+          <ion-item>
+            <ion-label position="floating">Announcement</ion-label>
+            <ion-input type="text" formControlName="schoolAnnouncement"></ion-input>
+          </ion-item>
+          <ion-button expand="block" type="submit" [disabled]="schoolAnnouncementForm.invalid">
+            Add Announcement
+          </ion-button>
+        </form>
+      </div>
+    </ion-segment-content>
+  </ion-segment-view>
+<ng-template [ngIf]="loading">
+  <div class="loading-overlay">
+    <ion-spinner name="Lines Small" color="tertiary"></ion-spinner>
+  </div>
+</ng-template>
+
+</ion-content>

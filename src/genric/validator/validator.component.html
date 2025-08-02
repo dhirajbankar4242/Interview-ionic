@@ -1,0 +1,35 @@
+<div [ngStyle]="{'display': (control.dirty || control.touched || submitted) ? 'block' : 'none'}" class="validator">
+  <p>
+    <ng-container *ngIf="control.errors?.['required'] || control.hasError('required')">
+      {{validators.required }} &nbsp;
+    </ng-container>
+
+    <ng-container *ngIf="control.errors?.['email']">
+      {{validators.email}}&nbsp;
+    </ng-container>
+
+    <ng-container *ngIf="control.errors?.['min']">
+      {{validators.min }}<b> {{control.errors?.['min']?.min }}</b>&nbsp;
+    </ng-container>
+
+    <ng-container *ngIf="control.errors?.['max']">
+      {{validators.max }}<b> {{control.errors?.['max']?.max }}</b>&nbsp;
+    </ng-container>
+
+    <ng-container *ngIf="control.errors?.['minlength']">
+      {{validators.minlength }}<b>{{control.errors?.['minlength']?.requiredLength }}</b>&nbsp;
+    </ng-container>
+
+    <ng-container *ngIf="control.errors?.['maxlength']">
+      {{validators.maxlength }}<b>{{control.errors?.['maxlength']?.requiredLength}}</b>&nbsp;
+    </ng-container>
+
+    <ng-container *ngIf="control.errors?.['pattern']">
+      {{validators.pattern }}
+    </ng-container>
+
+    <ng-container *ngIf="control.errors?.['invalidPassword']">
+      Password must contain uppercase letters, lowercase letters, and numbers.
+    </ng-container>
+  </p>
+</div>

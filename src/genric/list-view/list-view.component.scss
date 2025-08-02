@@ -1,0 +1,94 @@
+ion-card-content {
+    padding-bottom: 5px;
+  
+    ion-grid {
+      ion-row {
+        ion-col {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+  
+          padding-bottom: 0;
+          padding-top: 0;
+  
+          ion-label.data {
+            font-size: 11px; /* Adjust the font size as needed */
+            color: var(--ion-color-dark);
+          }
+  
+          ion-label.label {
+            color: var(--ion-color-medium);
+            font-size: 8px; /* Adjust the font size as needed */
+          }
+        }
+      }
+    }
+  }
+  
+  ion-card-header {
+    justify-content: space-between;
+    padding: 10px 10px 0 10px;
+  
+    .client-header {
+      display: flex;
+      align-items: center;
+    }
+  
+    ion-card-title.client-name {
+      font-size: 14px;
+      font-weight: bold;
+      margin-right: auto; /* Pushes status badge to the end */
+    }
+  
+    .code-badge {
+  
+      font-size: 9px;
+    }
+  
+    .status-badge {
+      margin-left: 10px;
+      font-size: 10px;
+    }
+  }
+  
+  
+  .custom-card {
+    overflow: hidden;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  
+  
+  .search-sort-container {
+    display: flex;
+    align-items: center;
+    padding-inline-end: var(--ion-padding, 16px);
+  }
+  
+  ion-fab-button {
+    right: 5%;
+    bottom: 2%;
+    position: fixed;
+  }
+  
+  .no-data-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    text-align: center;
+  
+    ion-icon {
+      font-size: 48px;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+  
+    p {
+      font-size: 16px;
+      color: #ccc;
+    }
+  }
+  

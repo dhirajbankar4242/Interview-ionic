@@ -1,0 +1,47 @@
+<div class="search-sort-container ">
+  <ion-searchbar [debounce]="1500" (ionInput)="filterClients($event)"></ion-searchbar>
+  <ion-icon slot="end" name="ellipsis-vertical" color="medium" id="open-action-sheet"></ion-icon>
+</div>
+<ion-action-sheet trigger="open-action-sheet" header="Actions" [buttons]="actionSheetButtons"
+                  (didDismiss)="doAction($event)"></ion-action-sheet>
+<ng-container *ngIf="data.length == 0">
+  <div class="no-data-message">
+    <ion-icon name="alert-circle-outline"></ion-icon>
+    <p>No data is available at the moment.</p>
+  </div>
+</ng-container>
+<ion-list lines="none" *ngIf="data.length > 0" style="min-height: 50%;">
+  <ion-card *ngFor="let client of data" class="custom-card" (click)="openRecordDetails(client)">
+    <ion-card-header>
+      <div class="client-header">
+        <ion-card-title class="client-name">
+          {{ getMultiLangInput(client.name) }}</ion-card-title>
+        <ion-badge class="code-badge" color="primary">{{ client.code }}</ion-badge>
+        <ion-badge class="status-badge"
+                   [color]="client.status ==='ACTIVE'? 'success':'danger'">{{ client.status }}</ion-badge>
+      </div>
+    </ion-card-header>
+    <ion-card-content class="ion-no-padding">
+      <ion-grid>
+        <ion-row>
+          <ng-container *ngFor="let props of client.properties; let i = index; trackBy:trackItems">
+            <ion-col size="{{colSize}}"
+                     [ngStyle]="{'align-items': getColumnAlignItems(i)}">
+              <ion-label class="label">{{ props.label }}</ion-label>
+              <ion-label class="data">{{ getMultiLangInput(props.value) }}</ion-label>
+            </ion-col>
+          </ng-container>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-list>
+<ion-infinite-scroll (ionInfinite)="onIonInfinite($event)" *ngIf="page  totalPages">
+  <ion-infinite-scroll-content loadingText="Loading more data. Please wait..."
+                               loadingSpinner="bubbles"></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="openAddRecordModal()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
