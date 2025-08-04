@@ -37,6 +37,34 @@ export const routes: Routes = [
     canActivateChild: [authGuard]
   },
   // {
+  //   path: 'admin-layout-header',
+  //   loadComponent: () => import('./admin-school/admin-layout-header/admin-layout-header.page').then( m => m.AdminLayoutHeaderPage)
+  // },
+  // {
+  //   path: 'admin-layout-footer',
+  //   loadComponent: () => import('./admin-school/admin-layout-footer/admin-layout-footer.page').then( m => m.AdminLayoutFooterPage)
+  // },
+  // {
+  //   path: 'student-profile',
+  //   loadComponent: () => import('./student/student-profile/student-profile.page').then( m => m.StudentProfilePage)
+  // },
+  // {
+  //   path: 'student-profile-settings',
+  //   loadComponent: () => import('./student/student-profile-settings/student-profile-settings.page').then( m => m.StudentProfileSettingsPage)
+  // },
+  // {
+  //   path: 'student-notification',
+  //   loadComponent: () => import('./student/student-notification/student-notification.page').then( m => m.StudentNotificationPage)
+  // },
+  // {
+  //   path: 'student-fees',
+  //   loadComponent: () => import('./student/student-fees/student-fees.page').then( m => m.StudentFeesPage)
+  // },
+  // {
+  //   path: 'student-menu',
+  //   loadComponent: () => import('./student/student-menu/student-menu.page').then( m => m.StudentMenuPage)
+  // },
+  // {
   //   path: 'teacher-home',
   //   loadComponent: () => import('./teacher/teacher-home/teacher-home.page').then( m => m.TeacherHomePage)
   // },

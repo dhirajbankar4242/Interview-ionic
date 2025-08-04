@@ -5,13 +5,13 @@ import { Router } from '@angular/router';
 import { IonButton, IonHeader, IonIcon, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 
 @Component({
-  selector: 'app-teacher-header',
-  templateUrl: './teacher-header.page.html',
-  styleUrls: ['./teacher-header.page.scss'],
+  selector: 'app-admin-layout-header',
+  templateUrl: './admin-layout-header.page.html',
+  styleUrls: ['./admin-layout-header.page.scss'],
   standalone: true,
-  imports: [IonButton, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonIcon ]
+  imports: [IonButton, IonIcon, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
-export class TeacherHeaderPage implements OnInit {
+export class AdminLayoutHeaderPage implements OnInit {
 
   constructor(private router:Router) { }
 

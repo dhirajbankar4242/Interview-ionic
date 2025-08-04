@@ -24,7 +24,6 @@ export const authGuard: CanActivateFn & CanActivateChildFn = async (route, state
   const token = await localStorage.getItem(Global.key_token);
 
   if (token) {
-    console.log(token);
     return true;
   }
   alert("Login first");

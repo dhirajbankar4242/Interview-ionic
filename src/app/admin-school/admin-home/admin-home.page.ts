@@ -1,18 +1,31 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-// import { IonicModule } from "@ionic/angular";
+import { Router } from '@angular/router';
+import {
+  IonButton,
+  IonHeader,
+  IonInput,
+  IonItem,
+  IonLabel,
+  IonSegment,
+  IonSegmentButton,
+  IonSegmentContent,
+  IonSegmentView,
+  IonSpinner,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/angular/standalone';
 import { HttpService } from 'src/services/http.service';
 import { ToastService } from 'src/services/toast.service';
-import { Router } from '@angular/router';
-import { IonInput, IonButton, IonContent, IonHeader, IonTitle, IonToolbar, IonLabel, IonItem, IonSegment, IonSegmentButton, IonSegmentView, IonSegmentContent, IonSpinner } from '@ionic/angular/standalone';
 
+// import { IonicModule } from "@ionic/angular";
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.page.html',
   styleUrls: ['./admin-home.page.scss'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, IonInput, IonButton, IonContent, IonHeader, IonTitle, IonToolbar, IonLabel, IonItem, IonSegment, IonSegmentButton, IonSegmentView, IonSegmentContent, IonSpinner]
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, IonInput, IonButton,  IonHeader, IonTitle, IonToolbar, IonLabel, IonItem, IonSegment, IonSegmentButton, IonSegmentView, IonSegmentContent, IonSpinner]
 })
 export class AdminHomePage implements OnInit {
 loading = false;

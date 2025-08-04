@@ -1,60 +1,3 @@
-<!-- <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>teacherHome</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">teacherHome</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-segment>
-    <ion-segment-button value="first" content-id="first">
-      <ion-label>School Announcement</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="second" content-id="second">
-      <ion-label>Add Announcement</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-  <ion-segment-view>
-    <ion-segment-content id="first">
-      <ion-list>
-        <ion-item *ngFor="let a of announcments">
-          <ion-label>
-            {{ a.schoolannouncement }}
-          </ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-segment-content>
-    <ion-segment-content id="second">
-      <div class="ion-padding">
-        <form [formGroup]="teacherAnnouncementForm" (ngSubmit)="submitTeacherAnnouncementForm()">
-          <ion-item>
-            <ion-label position="floating">Announcement</ion-label>
-            <ion-input type="text" formControlName="teacherAnnouncement"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Student Class</ion-label>
-            <ion-input type="text" formControlName="studentClass"></ion-input>
-          </ion-item>
-          <ion-button expand="block" type="submit" [disabled]="teacherAnnouncementForm.invalid">
-            Add Announcement
-          </ion-button>
-        </form>
-      </div>
-    </ion-segment-content>
-  </ion-segment-view>
-</ion-content> -->
-
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>TeacherHome</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
   <ion-segment [(ngModel)]="segmentValue">
     <ion-segment-button value="first">
       <ion-label>School Announcement</ion-label>
@@ -89,4 +32,3 @@
       </form>
     </div>
   </div>
-</ion-content>

@@ -3,15 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminHomePage } from './admin-home/admin-home.page';
 
 const routes: Routes = [
-     { path: "admin-home", component:AdminHomePage}
+  {
+    path: "",
+    component: AdminHomePage
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminRoutingModule { 
-  
- 
-    
+export class AdminRoutingModule {
 }

@@ -4,13 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { IonFooter, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 
 @Component({
-  selector: 'app-teacher-footer',
-  templateUrl: './teacher-footer.page.html',
-  styleUrls: ['./teacher-footer.page.scss'],
+  selector: 'app-admin-layout-footer',
+  templateUrl: './admin-layout-footer.page.html',
+  styleUrls: ['./admin-layout-footer.page.scss'],
   standalone: true,
   imports: [IonFooter, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
-export class TeacherFooterPage implements OnInit {
+export class AdminLayoutFooterPage implements OnInit {
 
   constructor() { }
 

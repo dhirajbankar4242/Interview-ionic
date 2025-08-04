@@ -82,6 +82,7 @@ export class LoginPage {
   }
 
   checkLogin(result: any) {
+    this.localStorage.setItem(Global.loginId, result.loginData.loginId)
     this.localStorage.setItem(Global.studentClass, result.loginData.studentClass)
     this.localStorage.setItem(Global.key_token, result.token);
     this.localStorage.setItem(Global.key_refresh_token, result.refreshToken);
@@ -94,13 +95,12 @@ export class LoginPage {
     setTimeout(() => {
       let redirectUrl = '';
       if (result.loginData.tenantType === 'SUPER_ADMIN') {
-        redirectUrl = 'admin/admin-home';
+        redirectUrl = 'admin';
         console.log("admin-home");
       } else if (result.loginData.tenantType === 'TEACHER') {
-        redirectUrl = 'teacher/teacher-home';
+        redirectUrl = 'teacher';
       } else if (result.loginData.tenantType === 'STUDENT') {
-        // redirectUrl = 'user_home';
-        redirectUrl = 'student/student-home';
+        redirectUrl = 'student';
       } else {
         redirectUrl = 'login'; // Default case
       }

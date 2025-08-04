@@ -1,0 +1,13 @@
+.footer-buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  ion-button {
+    --padding-start: 0;
+    --padding-end: 0;
+    color: #000; // change to white or another color if needed
+  }
+}
+
+
+

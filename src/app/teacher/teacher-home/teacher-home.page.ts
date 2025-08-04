@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-// import { IonicModule } from "@ionic/angular";
 import { Router } from '@angular/router';
+import { IonButton, IonItem, IonLabel, IonList, IonSegment, IonSegmentButton, IonInput } from '@ionic/angular/standalone';
 import { HttpService } from 'src/services/http.service';
 import { ToastService } from 'src/services/toast.service';
-import { IonButton, IonLabel, IonItem, IonList, IonContent, IonToolbar, IonTitle, IonHeader, IonSegmentButton, IonSegment } from '@ionic/angular/standalone';
 
+// import { IonicModule } from "@ionic/angular";
 @Component({
   selector: 'app-teacher-home',
   templateUrl: './teacher-home.page.html',
   styleUrls: ['./teacher-home.page.scss'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, IonButton, IonLabel, IonItem, IonList, IonContent, IonToolbar, IonTitle, IonHeader, IonSegmentButton, IonSegment]
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, IonInput, IonButton, IonLabel, IonItem, IonList, IonSegmentButton, IonSegment]
 })
 export class TeacherHomePage implements OnInit {
   announcments: any[] = [];

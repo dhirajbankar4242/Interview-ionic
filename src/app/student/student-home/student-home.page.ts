@@ -2,17 +2,28 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-// import { IonicModule } from '@ionic/angular';
+import {
+  IonHeader,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonSegment,
+  IonSegmentButton,
+  IonSegmentContent,
+  IonSegmentView,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/angular/standalone';
 import { HttpService } from 'src/services/http.service';
 import { StorageService } from 'src/services/storage.service';
-import { IonLabel, IonItem, IonSegmentContent, IonList, IonSegmentButton, IonSegmentView, IonSegment, IonTitle, IonToolbar, IonHeader, IonContent } from '@ionic/angular/standalone';
 
+// import { IonicModule } from '@ionic/angular';
 @Component({
   selector: 'app-student-home',
   templateUrl: './student-home.page.html',
   styleUrls: ['./student-home.page.scss'],
   standalone: true,
-  imports: [ CommonModule, FormsModule,  IonContent, IonHeader, IonTitle, IonToolbar, IonLabel, IonItem, IonList, IonSegment, IonSegmentButton, IonSegmentView, IonSegmentContent]
+  imports: [ CommonModule, FormsModule, IonHeader, IonTitle, IonToolbar, IonLabel, IonItem, IonList, IonSegment, IonSegmentButton, IonSegmentView, IonSegmentContent]
 })
 export class StudentHomePage implements OnInit {
   announcments: any[] = [];
