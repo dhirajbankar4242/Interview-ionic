@@ -5,6 +5,9 @@
     <ion-segment-button value="second">
       <ion-label>Add Announcement</ion-label>
     </ion-segment-button>
+    <ion-segment-button value="third">
+      <ion-label>Add Homework</ion-label>
+    </ion-segment-button>    
   </ion-segment>
 
   <div [ngSwitch]="segmentValue" class="ion-padding">
@@ -28,6 +31,34 @@
         </ion-item>
         <ion-button expand="block" type="submit" [disabled]="teacherAnnouncementForm.invalid">
           Add Announcement
+        </ion-button>
+      </form>
+    </div>
+
+    <div *ngSwitchCase="'third'">
+      <form [formGroup]="homeworkForm" (ngSubmit)="addHomeworkForm()">
+        <ion-item>
+          <ion-label position="floating">Subject</ion-label>
+          <ion-input type="text" formControlName="subjectName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Task</ion-label>
+          <ion-input type="text" formControlName="taskName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Student Class</ion-label>
+          <ion-input type="text" formControlName="studentClass"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Pdf</ion-label>
+          <ion-button expand="block" (click)="pickPdf()" style="display: block; margin-top: 24px;">Pick PDF</ion-button>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Image</ion-label>
+          <ion-button expand="block" (click)="selectImage()" style="display: block; margin-top: 24px;">Pick Image</ion-button>
+        </ion-item>
+        <ion-button expand="block" type="submit" [disabled]="homeworkForm.invalid">
+          Add Homework
         </ion-button>
       </form>
     </div>

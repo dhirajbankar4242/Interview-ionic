@@ -1,25 +1,36 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, SelectChangeEventDetail } from '@ionic/angular/standalone';
-import { IonicModule, NavController } from '@ionic/angular';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { StorageService } from 'src/services/storage.service';
-import { HttpService } from 'src/services/http.service';
 import { Router } from '@angular/router';
-import { ToastService } from 'src/services/toast.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { NavController } from '@ionic/angular';
+import {
+  IonButton,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonContent,
+  IonIcon,
+  IonSpinner,
+  IonImg,
+  SelectChangeEventDetail,
+} from '@ionic/angular/standalone';
+import { IonSelectCustomEvent } from '@ionic/core';
+import { addIcons } from 'ionicons';
+import { eye, key, person } from 'ionicons/icons';
 import { Global } from 'src/dto/dtos';
 import { ValidatorComponent } from 'src/genric/validator/validator.component';
-import { IonSelectCustomEvent } from '@ionic/core';
-import { eye, key, person } from 'ionicons/icons';
-import { addIcons } from 'ionicons';
+import { HttpService } from 'src/services/http.service';
+import { StorageService } from 'src/services/storage.service';
+import { ToastService } from 'src/services/toast.service';
+import { IonHeader, IonTitle, IonToolbar, IonInput } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, IonicModule, CommonModule, FormsModule, ReactiveFormsModule, ValidatorComponent]
+  imports: [CommonModule, FormsModule, IonHeader, IonTitle, IonToolbar, IonIcon, IonContent, IonCardHeader, IonCardContent, IonButton, IonSpinner, CommonModule, FormsModule, ReactiveFormsModule, ValidatorComponent, IonCard, IonInput, IonImg]
 })
 export class LoginPage {
   showPassword = false;

@@ -1,35 +1,138 @@
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-title size="large">studentHome</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">studentHome</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<!-- Top-level segment -->
+<ion-segment [(ngModel)]="mainSegment">
+  <ion-segment-button value="first">
+    <ion-thumbnail>
+      <img src="assets/images/assignment.png" />
+    </ion-thumbnail>
+  </ion-segment-button>
+  <ion-segment-button value="second">
+    <ion-thumbnail>
+      <img src="assets/images/class-diary.png" />
+    </ion-thumbnail>
+  </ion-segment-button>
+  <ion-segment-button value="third">
+    <ion-thumbnail>
+      <img src="assets/images/circular.png" />
+    </ion-thumbnail>
+  </ion-segment-button>
+  <ion-segment-button value="fourth">
+    <ion-thumbnail>
+      <img src="assets/images/notification.png" />
+    </ion-thumbnail>
+  </ion-segment-button>
+  <ion-segment-button value="fifth">
+    <ion-thumbnail>
+      <img src="assets/images/report.png" />
+    </ion-thumbnail>
+  </ion-segment-button>
+</ion-segment>
 
-  <ion-segment>
-    <ion-segment-button value="first" content-id="first">
-      <ion-label>School Announcement</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="second" content-id="second">
-      <ion-label>Teacher Announcement</ion-label>
+<!-- Segment content -->
+<div [ngSwitch]="mainSegment">
+
+  <!-- First segment (with nested segment) -->
+  <div *ngSwitchCase="'first'">
+
+    <ion-segment [(ngModel)]="subSegment">
+      <ion-segment-button value="online" class="btnBtn">
+        <ion-label>Online</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="offline" class="btnBtn">
+        <ion-label>Offline</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="subSegment">
+      <div *ngSwitchCase="'online'">
+        <ion-img src="assets/images/no.jpg" class="fullscreen-image"></ion-img>
+      </div>
+      <div *ngSwitchCase="'offline'">
+        <ion-img src="assets/images/no.jpg" class="fullscreen-image"></ion-img>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Other segments -->
+   <div *ngSwitchCase="'second'">
+  <ion-segment [(ngModel)]="calendarToggle">
+    <ion-segment-button (click)="toggleCalendar()" value="toggle" class="btnBtn">
+      <ion-label>{{ showCalendar ? 'Hide Calendar' : 'Select Date' }}</ion-label>
     </ion-segment-button>
   </ion-segment>
-  <ion-segment-view>
-    <ion-segment-content id="first">
-      <ion-list>
-        <ion-item *ngFor="let a of announcments">
-          <ion-label>
-            {{ a.schoolannouncement }}
-          </ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-segment-content>
-    <ion-segment-content id="second">
-      <ion-list>
-        <ion-item *ngFor="let a of teacherAnnouncments">
-          <ion-label>
-            {{ a.teacherannouncement }}
-          </ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-segment-content>
-  </ion-segment-view>
+
+  <div *ngIf="showCalendar">
+    <ion-datetime
+      presentation="date"
+      (ionChange)="onDateSelected($event)">
+    </ion-datetime>
+  </div>
+</div>
+
+  <!-- <div *ngSwitchCase="'second'">
+    <ion-button expand="block" (click)="toggleCalendar()" >
+      {{ showCalendar ? 'Hide Calendar' : 'Select Date' }}
+    </ion-button>
+    <div *ngIf="showCalendar">
+      <ion-datetime presentation="date" (ionChange)="onDateSelected($event)">
+      </ion-datetime>
+    </div>
+  </div> -->
+
+  <div *ngSwitchCase="'third'">
+    <ion-list>
+      <ion-item *ngFor="let a of teacherAnnouncments">
+        <ion-label>{{ a.teacherannouncement }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngSwitchCase="'fourth'">
+    <!-- <ion-list>
+      <ion-item *ngFor="let a of teacherAnnouncments">
+        <ion-label>{{ a.teacherannouncement }}</ion-label>
+      </ion-item>
+    </ion-list> -->
+    <ion-segment>
+      <ion-segment-button value="first" content-id="first" class="btnBtn">
+        <ion-label>General</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="second" content-id="second" class="btnBtn">
+        <ion-label>Attendance</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="third" content-id="third" class="btnBtn">
+        <ion-label>Transport</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <ion-segment-view>
+
+      <ion-segment-content id="first">
+<h3>hdgfcv</h3>
+      </ion-segment-content>
+
+      <ion-segment-content id="second">
+<h3>hdgfcv</h3>
+      </ion-segment-content>
+
+      <ion-segment-content id="third">
+<h3>hdgfcv</h3>
+      </ion-segment-content>
+    </ion-segment-view>
+  </div>
+
+  <div *ngSwitchCase="'fifth'">
+    <ion-list>
+      <ion-item *ngFor="let a of teacherAnnouncments">
+        <ion-label>{{ a.teacherannouncement }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</div>
