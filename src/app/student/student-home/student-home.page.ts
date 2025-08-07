@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import {
   IonDatetime,
   IonHeader,
+  IonImg,
   IonItem,
   IonLabel,
   IonList,
@@ -14,7 +15,8 @@ import {
   IonSegmentView,
   IonThumbnail,
   IonTitle,
-  IonToolbar, IonImg } from '@ionic/angular/standalone';
+  IonToolbar,
+} from '@ionic/angular/standalone';
 import { HttpService } from 'src/services/http.service';
 import { StorageService } from 'src/services/storage.service';
 
@@ -32,8 +34,7 @@ export class StudentHomePage implements OnInit {
   subSegment = 'online';
   showCalendar = false;
   calendarToggle = 'toggle'; // just a dummy model to bind segment
-
-
+  homeworks: any[] = [];
 
   constructor(private router: Router, private service: HttpService, private localStorage: StorageService) { }
   async ngOnInit() {
@@ -62,11 +63,27 @@ export class StudentHomePage implements OnInit {
   }
 
   onDateSelected(event: any) {
-    const selectedDate = event.detail.value;
-    console.log('Selected date:', selectedDate);
-
-    // Optionally hide the calendar after selection
+    const selectedDateString = event.detail.value;
+    const dateObj = new Date(selectedDateString);
+    if (isNaN(dateObj.getTime())) {
+      console.error('Invalid date selected:', selectedDateString);
+      return;
+    }
+    const formattedDate = dateObj.toISOString().split('T')[0]; 
+    console.log('Selected date String:', selectedDateString);
+    console.log('Formatted Date:', formattedDate);
     this.showCalendar = false;
+    this.getHomework(formattedDate);
+  }
+
+  async getHomework(formattedDate: any) {
+    const studentClass = await this.localStorage.getItem('studentClass')
+    const queryParams: any = {};
+    if (studentClass) queryParams.studentClass = studentClass;
+    if (formattedDate) queryParams.selectedDate = formattedDate;
+    this.service.get("student/homework", queryParams).subscribe((response) => {
+      this.homeworks = response;
+    })
   }
 
   logOut() {

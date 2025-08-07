@@ -53,6 +53,7 @@ export class TeacherHomePage implements OnInit {
       console.log(file);
       if (file.blob) {
         this.pdfAsBase64 = await this.convertBlobToBase64(file.blob);
+        this.pdfAsBase64 = this.pdfAsBase64.split(',')[1];
         console.log('Base64 PDF:', this.pdfAsBase64);
       } else {
         console.error('File blob is missing.');
@@ -92,7 +93,7 @@ export class TeacherHomePage implements OnInit {
       subjectName: formValue.subjectName,
       taskName: formValue.taskName,
       studentClass: formValue.studentClass,
-      // pdfBase64: this.pdfAsBase64,
+      pdfBase64: this.pdfAsBase64,
       imageBase64: this.imageAsBase64
     };
     console.log(payload)

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonButton, IonHeader, IonIcon, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { logOutOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-teacher-header',
@@ -13,7 +15,9 @@ import { IonButton, IonHeader, IonIcon, IonTitle, IonToolbar } from '@ionic/angu
 })
 export class TeacherHeaderPage implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router) { 
+    addIcons({ logOutOutline });
+  }
 
   ngOnInit() {
   }
